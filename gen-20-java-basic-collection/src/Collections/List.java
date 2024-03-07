@@ -5,6 +5,15 @@ import java.util.*;
 
 public class List {
 
+    public static void inputData2(HashSet<String> dataHash, HashMap<String, Integer> hashMap){
+        Scanner input =  new Scanner(System.in);
+        for(String data : dataHash){
+            System.out.print("Masukkan jumlah data dari " + data +": ");
+            int jumlah = input.nextInt();
+            hashMap.put(data, jumlah);
+        }
+    }
+
     public static void inputData(ArrayList<String> listData){
         System.out.print("Input panjang data:");
         Scanner input = new Scanner(System.in);
@@ -33,17 +42,18 @@ public class List {
 
         // menggunakan hash set
         HashSet<String> dataHash = new HashSet<>(listData);
-        System.out.println("Berikut output hash set");
-        for(String data : dataHash){
-            System.out.println(data);
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        inputData2(dataHash, hashMap);
+
+        // mengeluarkan output dari hashmap method inputData2
+        System.out.println("Hasil dari inputData2:");
+        for(Map.Entry<String, Integer> map : hashMap.entrySet()){
+            String data1 = map.getKey();
+            int data2 = map.getValue();
+            System.out.println(data1 + " dan " + data2);
+
         }
 
-        // menggunakan tree set
-        TreeSet<String> dataTree = new TreeSet<>(listData);
-        System.out.println("Berikut output tree set:");
-        for (String tree : dataTree){
-            System.out.println(tree);
-        }
 
 
     }
