@@ -19,8 +19,8 @@ public class List {
 
 
     }
+
     public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
 
         ArrayList<String> listData = new ArrayList<>();
         inputData(listData);
