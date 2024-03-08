@@ -6,7 +6,6 @@ import java.util.TreeMap;
 
 public interface Crud {
 
-        Map<Integer,String> map = new TreeMap<>();
         void addMap(Integer key);
         void updateMap() ;
         void getAll();
