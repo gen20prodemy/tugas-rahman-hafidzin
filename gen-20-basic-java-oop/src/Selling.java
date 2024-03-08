@@ -8,14 +8,14 @@ public class Selling extends Product{
         setProduct(produk);
         setPrice(harga);
     }
+    public void selling(String produk, int harga ){
+        setProduct(produk);
+        setPrice(harga);
+    }
 
     @Override
     public void setCat(String kategori){
         this.category = kategori;
-    }
-    public void selling(String produk, int harga ){
-        setProduct(produk);
-        setPrice(harga);
     }
     @Override
     public void display(){
