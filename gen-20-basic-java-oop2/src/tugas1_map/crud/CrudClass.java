@@ -1,12 +1,16 @@
 package tugas1_map.crud;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 import static tugas1_map.main.Main.run;
 
 public class CrudClass implements Crud{
 
-    protected Map<Integer,String> map = new TreeMap<>();
+    private static Map<Integer,String> map = new TreeMap<>();
     public Map getMap(){
         return this.map;
     }
@@ -122,8 +126,35 @@ public class CrudClass implements Crud{
                 System.out.println("key : "+ key + ", mempunyai nilai : " + value);
             }
         }
+    }
+    public static void uploadText(){
+        File file = new File("input.txt");
+        BufferedWriter bf = null;
 
+        try {
 
+            bf = new BufferedWriter(new FileWriter(file));
+
+            for (Map.Entry<Integer, String> entry :
+                    map.entrySet()) {
+                bf.write(entry.getKey() + ":"
+                        + entry.getValue());
+                // new line
+                bf.newLine();
+            }
+
+            bf.flush();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                bf.close();
+            }
+            catch (Exception e) {
+            }
+        }
     }
 
 }

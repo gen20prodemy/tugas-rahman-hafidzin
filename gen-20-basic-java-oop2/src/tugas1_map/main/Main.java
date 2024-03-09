@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class Main {
     static CrudClass crud = new CrudClass();
-//    static DataSiswa dataSiswa = new DataSiswa();
     public static void run(){
         try{
 
@@ -20,9 +19,11 @@ public class Main {
                     2. Lihat semua data
                     3. Update data
                     4. Delete data
-                    5. Akhiri program""");
+                    5. Akhiri program
+                    6. Upload ke text file""");
+
             int option = input.nextInt();
-            if(option < 1 || option > 5){
+            if(option < 1 || option > 6){
                 throw new IllegalArgumentException();
             }
             switch (option){
@@ -45,8 +46,11 @@ public class Main {
                 case 5:
                     System.err.println("Program berakhir");
                     System.exit(0);
+                case 6:
+                    CrudClass.uploadText();
+                    run();
                 default:
-                    System.out.println();
+                    System.out.println("Terjadi kesalahan");
                     run();
 
         }
