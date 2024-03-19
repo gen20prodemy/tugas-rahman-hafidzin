@@ -1,3 +1,2 @@
-5623, asdfw
-12312, kita bisa
-31513, kelasdfhj
+2, Siswa
+3, Pelajaran

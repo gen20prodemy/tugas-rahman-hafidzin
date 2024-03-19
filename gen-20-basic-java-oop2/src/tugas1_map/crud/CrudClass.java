@@ -21,16 +21,13 @@ public class CrudClass implements Crud{
 
     @Override
     public void addMap(Integer key) {
-
         try{
             Scanner input = new Scanner(System.in);
-
             System.out.print("Input value: ");
             String value = input.nextLine();
             if (map.containsKey(key)) {
                 throw new IllegalStateException();
             }
-
             if (value == null) {
                 throw new IllegalArgumentException();
             }
@@ -47,7 +44,6 @@ public class CrudClass implements Crud{
 
     @Override
     public void updateMap() {
-
         try{
             if(map.isEmpty()){
                 throw new EmptyStackException();
@@ -129,12 +125,9 @@ public class CrudClass implements Crud{
     }
     public static void uploadText(){
         File file = new File("input.txt");
-        BufferedWriter bf = null;
-
+        BufferedWriter bf;
         try {
-
             bf = new BufferedWriter(new FileWriter(file));
-
             for (Map.Entry<Integer, String> entry :
                     map.entrySet()) {
                 bf.write(entry.getKey() + ":"
@@ -148,13 +141,13 @@ public class CrudClass implements Crud{
         catch (IOException e) {
             e.printStackTrace();
         }
-        finally {
-            try {
-                bf.close();
-            }
-            catch (Exception e) {
-            }
-        }
+//        finally {
+//            try {
+//                bf.close();
+//            }
+//            catch (Exception e) {
+//            }
+//        }
     }
 
 }

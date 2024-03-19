@@ -13,7 +13,7 @@ public class CrudClass extends Crud {
     @Override
     public void createRow(Pojo data) {
         Map<Integer, Pojo> dataMap = readDataFromFile();
-        if(dataMap.containsKey(data.getId())){
+        if(!dataMap.containsKey(data.getId())){
             System.out.println("Data sudah ada.");
         } else {
             dataMap.put(data.getId(), data);
@@ -89,7 +89,6 @@ public class CrudClass extends Crud {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("input.txt"))) {
             for (Pojo data : dataMap.values()) {
                 writer.write(String.format("%d, %s%n", data.getId(), data.getData()));
-
             }
         } catch (IOException e) {
             e.printStackTrace();
