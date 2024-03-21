@@ -25,21 +25,25 @@ public class ProductsController {
     }
     public ProductsController(){}
 
+//    @GetMapping("/getmap")
+//    public List<Products> productsList() {
+//        return List.of(
+//                new Products(
+//                    1, "Indomie", 4
+//                ),
+//                new Products(
+//                        2,"Marimas", 6
+//                )
+//        );
+//    }
 
-    @GetMapping("/getmap")
-    public List<Products> productsList() {
-        return List.of(
-                new Products(
-                    1, "Indomie", 4
-                ),
-                new Products(
-                        2,"Marimas", 6
-                )
-        );
+    @GetMapping("/list")
+    public List<Products> showProducts(){
+        return productsRepo.findAll();
     }
     @PostMapping("/input")
-    public void postProduct(@RequestBody ProductsRequest pr) {
-         productsRepo.save(ps.inputProduct(pr));
+    public Products postProduct(@RequestBody ProductsRequest pr) {
+        return productsRepo.save(ps.inputProduct(pr));
     }
 
     @DeleteMapping("{productId}")
