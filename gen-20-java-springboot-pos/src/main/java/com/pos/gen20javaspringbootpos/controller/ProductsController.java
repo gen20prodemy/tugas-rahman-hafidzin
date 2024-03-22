@@ -25,6 +25,29 @@ public class ProductsController {
     }
     public ProductsController(){}
 
+    @GetMapping("/list")
+    public List<Products> showProducts(){
+        return productsRepo.findAll();
+    }
+    @PostMapping("/input")
+    public Products postProduct(@RequestBody ProductsRequest pr) {
+        return productsRepo.save(ps.inputProduct(pr));
+    }
+
+    @DeleteMapping("/{productId}")
+    public void deleteId(@PathVariable("productId") Integer id){
+        productsRepo.deleteById(id);
+    }
+
+    @GetMapping("/{nama}")
+    public List<Products> showName(@PathVariable("nama") String name){
+        return productsRepo.findByProductName(name);
+    }
+
+    @GetMapping("qty/{qty}")
+    public List<Products> showBelow(@PathVariable("qty") Integer qty){
+        return productsRepo.getProductQty(qty);
+    }
 //    @GetMapping("/getmap")
 //    public List<Products> productsList() {
 //        return List.of(
@@ -36,19 +59,4 @@ public class ProductsController {
 //                )
 //        );
 //    }
-
-    @GetMapping("/list")
-    public List<Products> showProducts(){
-        return productsRepo.findAll();
-    }
-    @PostMapping("/input")
-    public Products postProduct(@RequestBody ProductsRequest pr) {
-        return productsRepo.save(ps.inputProduct(pr));
-    }
-
-    @DeleteMapping("{productId}")
-    public void deleteId(@PathVariable("productId") Integer id){
-        productsRepo.deleteById(id);
-    }
-
 }

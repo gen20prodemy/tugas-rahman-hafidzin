@@ -24,11 +24,23 @@ public class Products {
     private Integer product_id;
     private String product_name;
     private Integer product_qty;
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    private Category category;
 
-    public Products(Integer product_id, String product_name, Integer product_qty) {
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Products(Integer product_id, String product_name, Integer product_qty, Category category) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_qty = product_qty;
+        this.category = category;
     }
 
     public Products(){}
@@ -57,25 +69,5 @@ public class Products {
         this.product_qty = product_qty;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Products products = (Products) o;
-        return product_id == products.product_id && product_qty == products.product_qty && Objects.equals(product_name, products.product_name);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(product_id, product_name, product_qty);
-    }
-
-    @Override
-    public String toString() {
-        return "Products{" +
-                "product_id=" + product_id +
-                ", product_name='" + product_name + '\'' +
-                ", product_qty=" + product_qty +
-                '}';
-    }
 }

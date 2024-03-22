@@ -11,6 +11,7 @@ public class ProductsService {
         Products prods = new Products();
         prods.setProduct_name(pr.getProduct_name());
         prods.setProduct_qty(pr.getProduct_qty());
+        prods.setCategory(pr.getCategory());
         return prods;
     }
 

@@ -1,6 +1,8 @@
 package com.pos.gen20javaspringbootpos.model;
 
 
+import com.pos.gen20javaspringbootpos.entity.Category;
+
 public class ProductsRequest {
 
 
@@ -8,11 +10,14 @@ public class ProductsRequest {
     private String product_name;
 
     private Integer product_qty;
+    private Category category;
 
-    public ProductsRequest(Integer product_id, String product_name, Integer product_qty) {
+
+    public ProductsRequest(Integer product_id, String product_name, Integer product_qty, Category category) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_qty = product_qty;
+        this.category = category;
     }
 
     public ProductsRequest() {    }
@@ -41,6 +46,11 @@ public class ProductsRequest {
         this.product_qty = product_qty;
     }
 
+    public Category getCategory() {
+        return category;
+    }
 
-
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
