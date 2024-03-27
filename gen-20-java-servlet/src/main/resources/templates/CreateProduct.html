@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+    <form method="post" th:object="${productM}">
+        <label>Nama:</label>
+        <input th:field="${productM.product_name}"><br>
+        <label>Jumlah:</label>
+        <input th:field="${productM.product_qty}"><br>
+        <label>Category id:</label>
+        <input th:field="${productM.category.categoryId}"><br>
+        <input type="submit">
+
+    </form>
+</div>
+</body>
+</html>

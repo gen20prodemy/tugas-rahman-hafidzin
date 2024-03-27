@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home page</title>
+</head>
+<body>
+    <h1 th:text="${h1}"></h1>
+<div>
+    <h2>Tabel produk.</h2>
+    <table style="width: 30%; border-collapse: collapse ">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nama</th>
+                <th>Jumlah</th>
+                <th>Kategori</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p: ${product}">
+                <td th:text="${p.product_id}"></td>
+                <td th:text="${p.product_name}"></td>
+                <td th:text="${p.product_qty}"></td>
+                <td th:text="${p.category.categoryName}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
