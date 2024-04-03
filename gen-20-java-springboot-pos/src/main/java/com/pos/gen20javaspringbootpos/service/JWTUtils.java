@@ -20,8 +20,8 @@ public class JWTUtils {
     private SecretKey Key;
     private static final long EXPIRATION_TIME = 86400000;
     public JWTUtils(){
-        String secreteString = "0a8df9jq20948fnq3089r124908791238y083570193u401826743098710358610384123357356235802q48j0q38f4js123FASD1csdfg123123ASDFGAW35y35BGSF734567816134adflk";
-        byte[] keyBytes = Base64.getDecoder().decode(secreteString.getBytes(StandardCharsets.UTF_8));
+        String secretString = "0a8df9jq20948fnq3089r124908791238y083570193u401826743098710358610384123357356235802q48j0q38f4js123FASD1csdfg123123ASDFGAW35y35BGSF734567816134adflk";
+        byte[] keyBytes = Base64.getDecoder().decode(secretString.getBytes(StandardCharsets.UTF_8));
         this.Key = new SecretKeySpec(keyBytes, "HmacSHA256");
     }
 
