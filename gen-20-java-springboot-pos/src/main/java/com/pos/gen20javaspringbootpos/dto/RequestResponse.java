@@ -15,6 +15,7 @@ import java.util.List;
 public class RequestResponse {
 
     private int statusCode;
+    private Object output;
     private String error;
     private String message;
     private String token;

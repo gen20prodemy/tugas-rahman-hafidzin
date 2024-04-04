@@ -1,8 +1,13 @@
 package com.pos.gen20javaspringbootpos.model;
 
-public class CategoryRequest {
+import lombok.Data;
 
-    private int categoryId;
+import java.io.Serializable;
+
+@Data
+public class CategoryRequest implements Serializable {
+
+    private Integer categoryId;
     private String categoryName;
 
 

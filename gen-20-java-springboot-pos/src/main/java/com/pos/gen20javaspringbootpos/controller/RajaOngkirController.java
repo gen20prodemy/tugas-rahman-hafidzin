@@ -31,4 +31,9 @@ public class RajaOngkirController {
     public Object costApiDetail(){
         return ros.fetchCostDetail();
     }
+
+    @PostMapping("/cost/detail1")
+    public ResponseEntity<Object> costApiDetail1(){
+        return ResponseEntity.ok(ros.fetchCostDetail1());
+    }
 }
